@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"
+    >
+   
+    <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <!-- librariile pt prefix tara -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"> 
+</head>
+<body>
+    <section id="reviews" class="section">
+  <div>
+    
+
+    <button data-modal-open type="button" class="btn-review">Leave a review</button>
+  </div>
+
+  
+</section>
+
+<!-- Modal -->
+
+      <div class="modal-review modal is-hidden" data-modal>
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+          <button class="close-btn" data-modal-close>
+            <svg style="width: 14px; height: 14px">
+              <use href="./images/symbol-defs.svg#icon-x-close"></use>
+            </svg>
+          </button>
+          <div class="modal-body">
+            <div class="modal-title">LEAVE A REVIEW ABOUT <span>OUR CHOCOLATE</span></div>
+            <form class="modal-form">
+
+              <label for="" class="form-group">
+                <input type="text" name="username" class="input" placeholder="Name" autofocus autocomplete="off" required>
+              </label>
+
+              <label class="form-group">
+                <input type="email" name="email" class="input" placeholder="E-mail" autocomplete="off" required>
+              </label>
+
+              <label class="form-group input-with-bar">
+                <input type="tel" id="phone" class="input phone-number" placeholder="Phone" autocomplete="off" required style="padding-left: 177px;">
+                <div class="input-bar"></div>
+              </label>
+              
+              <label class="form-group">
+                <textarea name="message" rows="5" placeholder="Enter text" class="input comment-space"></textarea>
+              </label>
+          </form>
+          
+            <div class="end-modal send-btn-ctn">
+              <button class="send-btn" type="submit">Send</button>          
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <!-- Final - modal -->
+
+<script src="./js/modal-review1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.js"></script>
+</body>
+</html>
