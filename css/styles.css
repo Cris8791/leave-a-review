@@ -16,7 +16,7 @@ body {
 
 
 
-.btn-review {
+.btn-review.review-section-btn {
     display: block;
     margin: 0 auto;
     border: 1px solid #FD9222;
@@ -31,15 +31,15 @@ body {
     background-color: transparent;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.btn-review:hover,
-.btn-review:focus {
+.btn-review.review-section-btn:hover,
+.btn-review.review-section-btn:focus {
     color: #FFFFFF;
     background-color: #FD9222;
 }
 
 /* modalul din butonul "Leave a review" */
 
-.modal-review.modal {
+.modal-review.modal-review-pp {
   position: fixed;
   height: 100vh;
   display: flex;
@@ -52,43 +52,45 @@ body {
 }
 
 
-.modal-review .modal-backdrop {
+.modal-review.modal-review-pp .modal-backdrop {
   position: fixed; /* in felul asta fundalul (.modal-backdrop) este atasat de fereastra de vizualizare si nu va defila odata cu continutul paginii. */
   top: 0;
   left: 0;
   width: 100%; /*umple 100% din latimea ferestrei browserului si va fi fixat în ea*/
   height: 100%; /*umple 100% din inaltimea ferestrei browserului si va fi fixat în ea*/
-  background: #00000033;
+  background-color: #0000004d;
+    backdrop-filter: blur(2px);
   z-index: 3; /* am setat z-index mai mare decât cel al conținutului pentru a acoperi toata fereastra */
 }
-.modal-review .modal-content {
+.modal-review.modal-review-pp .modal-content {
+  max-width: 517px;
   background-color: #FAFAFA;
   border-radius: 4px;
   padding: 40px;
   position: absolute;
-  top: 41%; /* Am setat top-ul la 50% pt centrare pe verticala */
+  top: 41%; 
   left: 50%; /* Am setat left-ul la 50% pentru centrare pe orizontala */
   transform: translate(-50%, -50%);
   z-index: 4;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.is-hidden {
+.modal-review.modal-review-pp.is-hidden {
   visibility: hidden;
   transform: scale(1.1);
   opacity: 0;
 }
 
-.modal-review .close-btn {
+/* close-button-ul din modal */
+.modal-review.modal-review-pp .close-btn {
   position: absolute;
   width: 28px;
   height: 28px;
   right: 24px;
   top: 24px;
   border: white;
-  background: rgba(255, 255, 255, 1);
-
- padding: 0;
+  background:white;
+  padding: 0;
   cursor: pointer;
   display: flex; /*am pus flex cu centrarile aferente, ca sa centrez svg-ul din close-btn */
   justify-content: center;
@@ -96,15 +98,16 @@ body {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-review .close-btn>svg {
-  color: #000;
-  opacity: 1;
+.modal-review.modal-review-pp .close-btn>.icon-close-x {
+  color: var(--almost-black);
+  width: 14px;
+  height: 14px;
   
 }
 
 
-.close-btn:focus,
-.close-btn:hover {
+.modal-review.modal-review-pp .close-btn:focus,
+.modal-review.modal-review-pp .close-btn:hover {
   transform: scale(1.2);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -113,27 +116,28 @@ body {
 
 /* formularul din modal */
 
-.modal-review .modal-body {
+.modal-review.modal-review-pp .modal-body {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
-.modal-review .modal-title {
+.modal-review.modal-review-pp .modal-title {
   color: var(--almost-black);
-font-size: 24px;
-font-weight: 600;
-line-height: 28px;
-letter-spacing: -0.03em;
-text-align: left;
-padding-bottom: 22px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.03em;
+  text-align: left;
+  padding-bottom: 22px;
+  padding-right: 139px;
 }
 
-.modal-review .modal-title>span {
+.modal-review.modal-review-pp .modal-title>span {
   color: var(--dark-orange);
 }
 
-.modal-review .modal-form {
+.modal-review.modal-review-pp .modal-form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -143,78 +147,58 @@ padding-bottom: 22px;
   position: relative;
 }
 
-.modal-review .form-group {
+.modal-review.modal-review-pp .form-group {
   
-font-size: 18px;
-font-weight: 400;
-line-height: 22px;
-letter-spacing: -0.02em;
-text-align: left;
-
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-align: left;
   color:#4040404D;
   display: flex;
   flex-direction: column;
-
-  position: relative; /*pt a ma asigura că pot pozitiona SVG-urile relative la etichete */
-
+  position: relative; 
 }
 
 
-/* stilizez casuta efectiva de input */
+/* stilizare casutele de input */
 .modal-review .input {
-  width: 437px;
-height: 66px;
-padding: 22px 24px 22px 24px;
-border-radius: 13px;
-
-border: 1.5px solid rgba(17, 17, 17, 0.05);
-box-shadow: 0px 5.444915294647217px 5.444915294647217px 0px rgba(0, 0, 0, 0.03);
-
+  width: 100%;
+  height: 66px;
+  padding: 22px 24px 22px 24px;
+  border-radius: 13px;
+  border: 1.5px solid rgba(17, 17, 17, 0.05);
+  box-shadow: 0px 5.444915294647217px 5.444915294647217px 0px rgba(0, 0, 0, 0.03);
 }
 
 
-/* stilizez borderul inputului la focus  */
+/* stilizarea borderului inputului la focus  */
 .modal-form .input:focus {
   border-color: var(--dark-orange);
   outline: none;
   transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-
-/* sub-sectiunea de comments */
-.comment-space {
-  height: 137px;
-  
-  border: 1.5px solid #1111110D;
-  
-
-padding: 22px;
-border-radius: 13px;
-
-
-}
-/* textul initial din casuta de input */
+/* textul sugestiv din casuta de input */
 .modal-form .input::placeholder {
   color: #75757580;
 }
 
+/* sub-sectiunea de comments */
 .modal-review .comment-space {
+  height: 137px;
+  border: 1.5px solid #1111110D;
+  padding: 22px;
+  border-radius: 13px;
   resize: none;
   height: 137px;
-  overflow-y: auto; /* Afișează bara de derulare doar când este necesar */
-  resize: none; /* Dezactivează redimensionarea manuală a textarea */
-  scrollbar-width: thin; /* Setează lățimea barei de derulare */
+  overflow-y: auto; /* afisez bara de derulare doar cand este necesar */
+  resize: none; /* dezactivez redimensionarea manuala a campului */
+  scrollbar-width: thin; /* setez latimea barei de derulare */
 
 }
 
-/* .phone-number {
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 5px;
-  font-size: 14px;
-  width: 100%;
-} */
+/* suprascriere stiluri din librarie cu prefixele tarilor */
+
+/* zona de prefix */
 .iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container {
     padding: 17px 32px 17px 24px;
 }
@@ -226,33 +210,24 @@ border-radius: 13px;
     
 }
 
-.iti>.iti__selected-flag {
-    z-index: 1;
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    padding: 17px 17px 24px 32px;
-    background-color: #FFFFFF;
-}
 
 
+/* prefix - setare marginea-dreapta pt a distanta steagul de prefix si stilizare font */
 .iti.iti--allow-dropdown.iti--separate-dial-code .iti__selected-dial-code {
-    margin-left: 18px;
-    
-font-size: 18px;
-font-weight: 500;
-line-height: 22px;
-letter-spacing: -0.02em;
-text-align: left;
-color: #000;
+  margin-left: 18px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #000;
 
 }
 
+/* stilizare zona de introducere a telefonului */
 .iti.iti--allow-dropdown input, .iti.iti--allow-dropdown input[type=tel], .iti.iti--separate-dial-code input, .iti.iti--separate-dial-code input[type=tel] {
-    padding-right: 23px;
-    padding-left: 177px;
-    margin-left: 0;
+  padding-right: 23px;
+  margin-left: 0;
 }
 
 .iti.iti--allow-dropdown .input.phone-number:not([style*="padding-left"]),
@@ -262,35 +237,29 @@ color: #000;
     padding-left: 177px;
 }
 
-
+/* setare pozitiei relative la parinte pt bara dinaintea telefonului */
 .input-with-bar {
   position: relative;
 }
+
+/* stilizare bara dinaintea telefonului */
 .input-bar {
   position: absolute;
-  top: 17px; /* Mutați bara la mijlocul înălțimii casetei de input */
-  left: 149px; /* Poziționați bara la stânga, lângă spațiul dorit */
-  
+  top: 17px; 
+  left: 149px; 
   width: 2px;
   height: 32px; /* Lățimea și înălțimea barei */
   background-color: #4040404D;; /* Culoarea barei */
 
 }
 
-/* sectiunea cu acceptarea termenilor si conditiilor + butonul de send */
+/* butonul de send */
 .end-modal.send-btn-ctn {
- 
-
-align-items: center;
-display: flex;
-  
-  
+ align-items: center;
+  display: flex;
+  padding-top: 4px;
   
 }
-
-
-
-/* FINAL - stilizare svg in loc de checkbox-ul implicit de la acceptare termeni si conditii */
 
 .send-btn {
   border: none;
@@ -302,17 +271,131 @@ display: flex;
   font-size: 14px;
   font-weight: 600;
   line-height: 17.07px;
- 
   text-align: center;
   cursor: pointer;
-  
   display: block; /* Asigură că butonul ocupă întreaga lățime disponibilă în container */
 }
 
- {
+ 
+
+
+/* Stilizare pentru mobil */
+
+@media screen and (max-width: 767px) {
+  .modal-review .modal-content {
+    padding: 32px 24px;
+    max-width: 311px;
+  }
+
+  .modal-review .close-btn {
+    right: 14px;
+    top: 14px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .modal-review .close-btn>.icon-close-x {
+    width: 12px;
+    height: 12px;
   
 }
 
-/* FINAL - formularul din modal */
+  .modal-review .modal-title {
+    font-size: 20px;
+    line-height: 24px;
+    padding-right: 8px;
+    padding-bottom: 18px;
+  }
+
+  
+  .modal-review .modal-body {
+    gap: 14px;
+  }
+
+  .modal-review .modal-form {
+    width: 263px;
+    height: 268px;
+    gap: 14px;
+  }
+
+  .modal-review .form-group {
+    font-size: 14px;
+    line-height: 17px;
+  
+  }
+
+  .modal-review .input {
+    height: 45px;
+    padding: 14px 18px;
+  }
+
+  .modal-review .comment-space {
+    height: 91px;
+  }
+
+  .modal-review .white-background {
+    background-color: #FFFFFF;
+  }
+
+  /* zona de prefix */
+  .iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container {
+    padding: 10px 14px 10px 18px;
+}
+
+.iti.iti--allow-dropdown.iti--separate-dial-code .iti__selected-flag {
+    
+    width: 74px;
+    
+    
+}
+
+.iti.iti--allow-dropdown.iti--separate-dial-code .iti__selected-dial-code {
+  margin-left: 8px;
+  font-size: 14px;
+  line-height: 17px;
+  
+
+}
+
+/* stilizare zona de introducere a telefonului */
+.iti.iti--allow-dropdown input, .iti.iti--allow-dropdown input[type=tel], .iti.iti--separate-dial-code input, .iti.iti--separate-dial-code input[type=tel] {
+  padding-right: 18px;
+  
+}
+
+/* stilizare bara dinaintea telefonului */
+.input-bar {
+  top: 10px; 
+  left: 92px; 
+  height: 25px;
+  
+
+}
 
 
+
+
+/* Stilizare pentru tableta */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+
+  .modal-review .form-group {
+    font-size: 18px;
+    line-height: 22px;
+  
+  }
+
+  
+}
+
+
+/* Stilizare pentru desktop */
+@media screen and (min-width: 1200px) {
+
+  .modal-review .form-group {
+    font-size: 18px;
+    line-height: 22px;
+  
+  }
+
+  
+}

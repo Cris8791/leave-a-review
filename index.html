@@ -23,11 +23,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"> 
 </head>
 <body>
-    <section id="reviews" class="section">
+    
   <div>
     
 
-    <button data-modal-open type="button" class="btn-review">Leave a review</button>
+    <button data-modal-open type="button" class="btn-review review-section-btn">Leave a review</button>
   </div>
 
   
@@ -35,28 +35,28 @@
 
 <!-- Modal -->
 
-      <div class="modal-review modal is-hidden" data-modal>
+      <div class="modal-review modal-review-pp modal is-hidden" data-modal>
         <div class="modal-backdrop"></div>
         <div class="modal-content">
           <button class="close-btn" data-modal-close>
-            <svg style="width: 14px; height: 14px">
-              <use href="./images/symbol-defs.svg#icon-x-close"></use>
+            <svg class="icon-close-x">
+              <use href="/images/symbol-defs.svg#icon-close-x-btn"></use>
             </svg>
           </button>
           <div class="modal-body">
             <div class="modal-title">LEAVE A REVIEW ABOUT <span>OUR CHOCOLATE</span></div>
-            <form class="modal-form">
+            <form class="modal-form modal-form-review">
 
               <label for="" class="form-group">
                 <input type="text" name="username" class="input" placeholder="Name" autofocus autocomplete="off" required>
               </label>
 
               <label class="form-group">
-                <input type="email" name="email" class="input" placeholder="E-mail" autocomplete="off" required>
+                <input type="email" name="email" class="input white-background" placeholder="E-mail" autocomplete="off" required>
               </label>
 
               <label class="form-group input-with-bar">
-                <input type="tel" id="phone" class="input phone-number" placeholder="Phone" autocomplete="off" required style="padding-left: 177px;">
+                <input type="tel" id="phone" class="input phone-number" placeholder="Phone" autocomplete="off" required>
                 <div class="input-bar"></div>
               </label>
               
